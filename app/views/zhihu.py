@@ -9,7 +9,7 @@ zhihu = Blueprint('zhihu', __name__, template_folder="../templates", static_fold
 
 @zhihu.route('/')
 def home():
-    return render_template('base.html')
+    return render_template('zhihu/home.html')
 
 
 @zhihu.route('/<category>')
