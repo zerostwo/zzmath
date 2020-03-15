@@ -47,7 +47,7 @@ class TestConfig(Config):
         "DRIVER": "pymysql",
         "USER": "root",
         "PASSWORD": "981211",
-        "HOST": "localhost",
+        "HOST": "47.112.25.206",
         "PORT": "3306",
         "NAME": "zzmath"
     }

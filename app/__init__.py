@@ -6,6 +6,7 @@ from app.views import init_view
 
 def create_app(env):
     app = Flask(__name__)
+    app.secret_key = "duansq"
     # 加载配置
     app.config.from_object(envs.get(env))
     # 初始化l路由
