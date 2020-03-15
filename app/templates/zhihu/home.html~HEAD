@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="d-flex justify-content-center align-items-center" id="main">
+        <h1 class="mr-3 pr-3 align-top border-right inline-block align-content-center">Index</h1>
+        <div class="inline-block align-middle">
+            <h2 class="font-weight-normal lead" id="desc">目前更新语文，数学，英语，物理，化学，生物，历史，政治，地理总共9个板块。</h2>
+        </div>
+    </div>
+{% endblock %}

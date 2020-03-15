@@ -45,9 +45,9 @@ class TestConfig(Config):
     dbInfo = {
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
-        "USER": "duansq",
+        "USER": "root",
         "PASSWORD": "981211",
-        "HOST": "47.112.25.206",
+        "HOST": "localhost",
         "PORT": "3306",
         "NAME": "zzmath"
     }
@@ -59,11 +59,11 @@ class StagingConfig(Config):
     dbInfo = {
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
-        "USER": "duansq",
+        "USER": "root",
         "PASSWORD": "981211",
-        "HOST": "47.112.25.206",
-        "PORT": "3306",
-        "NAME": "zzmath"
+        "NAME": "zzmath",
+        "HOST": "localhost",
+        "PORT": "3306"
     }
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbInfo)
 
@@ -73,11 +73,11 @@ class ProductConfig(Config):
     dbInfo = {
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
-        "USER": "duansq",
+        "USER": "root",
         "PASSWORD": "981211",
-        "HOST": "47.112.25.206",
-        "PORT": "3306",
-        "NAME": "zzmath"
+        "NAME": "zzmath",
+        "HOST": "localhost",
+        "PORT": "3306"
     }
     SQLALCHEMY_DATABASE_URI = get_db_uri(dbInfo)
 

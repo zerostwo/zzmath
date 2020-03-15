@@ -1,0 +1,68 @@
+{% extends "beagle/base.html" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css"
+          href="../../static/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/assets/lib/select2/css/select2.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../static/assets/lib/bootstrap-slider/css/bootstrap-slider.min.css"/>
+{% endblock %}
+{% block content %}
+    <div class="page-head">
+        <h2 class="page-head-title">反馈问题</h2>
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb page-head-nav">
+                <li class="breadcrumb-item"><a href="{{ url_for("zhihu.home") }}">主页</a></li>
+                <li class="breadcrumb-item active">反馈问题</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="main-content container-fluid">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-2">
+                <div class="card card-border-color card-border-color-primary">
+                    <div class="card-header card-header-divider">反馈问题<span class="card-subtitle">These are the basic bootstrap form elements</span>
+                    </div>
+                    <form method="post">
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right"
+                                   for="inputTextarea3">*内容描述:</label>
+                            <div class="col-12 col-sm-6 col-lg-6">
+                                <textarea class="form-control" id="inputTextarea3" name="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row"></div>
+{#                        <div class="form-group row">#}
+{#                            <label class="col-12 col-sm-3 col-form-label text-sm-right" for="file-1">截图(选填):</label>#}
+{#                            <div class="col-12 col-sm-6">#}
+{#                                <input class="inputfile" id="file-1" type="file" name="file-1"#}
+{#                                       data-multiple-caption="{count} files selected" multiple>#}
+{#                                <label class="btn-secondary" for="file-1"> <i class="mdi mdi-upload"></i><span>Browse files...</span></label>#}
+{#                            </div>#}
+{#                        </div>#}
+                        <div class="text-center">
+                            <button class="btn btn-space btn-primary" type="submit">提交</button>
+                            <button class="btn btn-space btn-secondary">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+    <script src="../../static/assets/lib/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../../static/assets/lib/jquery.nestable/jquery.nestable.js" type="text/javascript"></script>
+    <script src="../../static/assets/lib/moment.js/min/moment.min.js" type="text/javascript"></script>
+    <script src="../../static/assets/lib/datetimepicker/js/bootstrap-datetimepicker.min.js"
+            type="text/javascript"></script>
+    <script src="../../static/assets/lib/select2/js/select2.min.js" type="text/javascript"></script>
+    <script src="../../static/assets/lib/select2/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="../../static/assets/lib/bootstrap-slider/bootstrap-slider.min.js" type="text/javascript"></script>
+    <script src="../../static/assets/lib/bs-custom-file-input/bs-custom-file-input.js" type="text/javascript"></script>
+    <script src="../../static/assets/js/app-form-elements.js" type="text/javascript"></script>
+{% endblock %}
+{% block App %}
+    App.formElements();
+{% endblock %}
