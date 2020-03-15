@@ -1,0 +1,171 @@
+{% extends "beagle/base.html" %}
+{% block content %}
+    <div class="page-head">
+        <h2 class="page-head-title">Sparklines</h2>
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb page-head-nav">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Charts</a></li>
+                <li class="breadcrumb-item active">Sparklines</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="main-content container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-xl-3">
+                <div class="widget widget-tile">
+                    <div class="chart sparkline" id="spark1">10,5,3,7,5,10,3,6,5,10</div>
+                    <div class="data-info">
+                        <div class="desc">New Users</div>
+                        <div class="value"><span
+                                class="indicator indicator-equal mdi mdi-chevron-right"></span><span
+                                class="number">113</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3">
+                <div class="widget widget-tile">
+                    <div class="chart sparkline" id="spark2">5,8,7,10,9,10,8,6,4,6,8,7,6,8</div>
+                    <div class="data-info">
+                        <div class="desc">Monthly Sales</div>
+                        <div class="value"><span
+                                class="indicator indicator-positive mdi mdi-chevron-up"></span><span
+                                class="number">80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3">
+                <div class="widget widget-tile">
+                    <div class="chart sparkline" id="spark3">2,3,4,5,4,3,2,3,4,5,6,5,4,3,4,5,6,5,4,4,5</div>
+                    <div class="data-info">
+                        <div class="desc">Impressions</div>
+                        <div class="value"><span
+                                class="indicator indicator-positive mdi mdi-chevron-up"></span><span
+                                class="number">532</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3">
+                <div class="widget widget-tile">
+                    <div class="chart sparkline" id="spark4">2,5,3,7,5,10,3,6,5,7</div>
+                    <div class="data-info">
+                        <div class="desc">Downloads</div>
+                        <div class="value"><span
+                                class="indicator indicator-negative mdi mdi-chevron-down"></span><span
+                                class="number">113</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="widget widget-fullwidth widget-small">
+                    <div class="widget-head">
+                        <div class="tools"><span class="icon mdi mdi-chevron-down"></span><span
+                                class="icon mdi mdi-refresh-sync"></span><span class="icon mdi mdi-close"></span>
+                        </div>
+                        <div class="title">Inline Charts</div>
+                        <div class="description">These are the basic sparkline charts</div>
+                    </div>
+                    <table class="table table-fw-widget">
+                        <thead>
+                        <tr>
+                            <th style="width:70%;">Name</th>
+                            <th class="text-right">Graph</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Line graph</td>
+                            <td class="text-right"><span class="sparklinebasic">8,4,0,0,0,0,1,4,4,10,10,10,10,0,0,0,4,6,5,9,10</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bar graph</td>
+                            <td class="text-right"><span class="sparkbar">10,8,9,3,5,8,5</span></td>
+                        </tr>
+                        <tr>
+                            <td>Pie charts</td>
+                            <td class="text-right"><span class="sparkpie">1,1,2</span><span
+                                    class="sparkpie">1,5</span><span class="sparkpie">20,50,80</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bullet charts</td>
+                            <td class="text-right"><span class="sparkbullet">10,12,12,9,7</span></td>
+                        </tr>
+                        <tr>
+                            <td>Stacked</td>
+                            <td class="text-right"><span class="sparkbar">0:2,2:4,4:2,4:1</span></td>
+                        </tr>
+                        <tr>
+                            <td>Composite</td>
+                            <td class="text-right"><span class="compositeline">8,4,0,0,0,0,1,4,4,10,10,10,10,0,0,0,4,6,5,9,10</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="widget widget-fullwidth widget-small">
+                    <div class="widget-head">
+                        <div class="tools"><span class="icon mdi mdi-chevron-down"></span><span
+                                class="icon mdi mdi-refresh-sync"></span><span class="icon mdi mdi-close"></span>
+                        </div>
+                        <div class="title">Inline Charts</div>
+                        <div class="description">These are the advanced sparkline charts</div>
+                    </div>
+                    <table class="table table-fw-widget">
+                        <thead>
+                        <tr>
+                            <th style="width:70%;">Name</th>
+                            <th class="text-right">Graph</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Composite bar</td>
+                            <td class="text-right"><span class="compositebar">4,6,7,7,4,3,2,1,4</span></td>
+                        </tr>
+                        <tr>
+                            <td>Discrete</td>
+                            <td class="text-right"><span
+                                    class="discrete1">4,6,7,7,4,3,2,1,4,4,5,6,7,6,6,2,4,5</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Discrete with threshold</td>
+                            <td class="text-right"><span class="discrete2">4,6,7,7,4,3,2,1,4</span></td>
+                        </tr>
+                        <tr>
+                            <td>Customize size and colours</td>
+                            <td class="text-right"><span class="linecustom">10,8,9,3,5,8,5,7</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tristate charts</td>
+                            <td class="text-right"><span class="sparktristate">1,1,0,1,-1,-1,1,-1,0,0,1,1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Box Plot</td>
+                            <td class="text-right"><span class="sparkboxplot">4,27,34,52,54,59,61,68,78,82,85,87,91,93,100</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="../../static/assets/lib/jquery.sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="../../static/assets/js/app-charts-sparkline.js" type="text/javascript"></script>
+{% endblock %}
+{% block App %}
+    App.chartsSparklines();
+{% endblock %}

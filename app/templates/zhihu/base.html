@@ -29,31 +29,31 @@
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav">
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "语文" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if active == "chinese" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="chinese") }}">语文</a>
                 </li>
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "数学" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if active == "math" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="math") }}">数学</a>
                 </li>
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "英语" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if active == "english" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="english") }}">英语</a>
                 </li>
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "物理" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if active == "physics" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="physics") }}">物理</a>
                 </li>
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "化学" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if active == "chemistry" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="chemistry") }}">化学</a>
                 </li>
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "生物" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if active == "biology" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="biology") }}">生物</a>
                 </li>
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "政治" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if active == "political" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="political") }}">政治</a>
                 </li>
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "历史" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if active == "history" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="history") }}">历史</a>
                 </li>
-                <li class="nav-item" role="presentation"><a class="nav-link {% if title == "地理" %}active{% endif %}"
+                <li class="nav-item" role="presentation"><a class="nav-link {% if category == "geography" %}active{% endif %}"
                                                             href="{{ url_for("zhihu.index", category="geography") }}">地理</a>
                 </li>
                 <li class="nav-item" role="presentation"></li>
@@ -69,7 +69,7 @@
                     href="https://weibo.com/u/3764641951"><i class="fab fa-weibo"></i></a><a
                     href="https://github.com/zerostwo"><i class="fab fa-github"></i></a><a
                     href="../../static/assets/img/zzmath.png"><i class="fab fa-qq"></i></a></div>
-            <p class="copyright">Copyright © Zzmath 2020
+            <p class="copyright">Copyright © <a href="https://zzmath.top" style="color: #aaa">Zzmath</a> 2020
                 <img style="width: 16px;vertical-align: sub;" src="../../static/filing.png">
                 <a href="http://www.beian.miit.gov.cn" style="color: #aaa">蜀ICP备18027889号</a></p>
         </div>

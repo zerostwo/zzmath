@@ -1,0 +1,1019 @@
+{% extends "beagle/base.html" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="../../static/assets/lib/jqvmap/jqvmap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/assets/lib/jquery.gritter/css/jquery.gritter.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/assets/lib/select2/css/select2.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../static/assets/lib/bootstrap-slider/css/bootstrap-slider.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="../../static/assets/lib/datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/assets/lib/jquery.fullcalendar/fullcalendar.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/assets/lib/jquery.magnific-popup/magnific-popup.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+          integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+            integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+            crossorigin="anonymous"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+            integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+{% endblock %}
+{% block content %}
+    <aside class="page-aside">
+        <div class="be-scroller-aside">
+            <div class="aside-content">
+                <div class="content">
+                    <div class="aside-header">
+                        <button class="navbar-toggle" data-target="#aside-spy" data-toggle="collapse" type="button">
+                            <span class="icon mdi mdi-caret-down"></span></button>
+                        <span class="title">文档</span>
+                        <p class="description">Zzmath docs</p>
+                    </div>
+                </div>
+                <div class="navbar aside-nav collapse" id="aside-spy">
+                    <ul class="navbar nav">
+                        {#                        <li class="nav-item"><a class="nav-link" href="#general">General</a>#}
+                        {#                            <ul class="nav sub-menu">#}
+                        {#                                <li class="nav-item"><a class="nav-link"#}
+                        {#                                                        href="#general_introduction">Introduction</a></li>#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#general_structure">HTML#}
+                        {#                                    Structure</a></li>#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#general_javascript">JavaScript</a>#}
+                        {#                                </li>#}
+                        {#                            </ul>#}
+                        {#                        </li>#}
+                        {#                        <li class="nav-item"><a class="nav-link" href="#getting_started">Getting Started</a>#}
+                        {#                            <ul class="nav sub-menu">#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#gs_basic_setup">Basic Setup</a></li>#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#gs_npm_setup">Using npm</a></li>#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#gs_npm_install_dependencies">Install#}
+                        {#                                    dependencies</a></li>#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#gs_npm_setup_sass">Setup Sass</a>#}
+                        {#                                </li>#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#gs_sass_variables">Variables</a>#}
+                        {#                                </li>#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#gs_npm_tasks">NPM scripts</a></li>#}
+                        {#                                <li class="nav-item"><a class="nav-link" href="#gs_npm_add_new_dependencies">Add new#}
+                        {#                                    dependencies</a></li>#}
+                        {#                            </ul>#}
+                        {#                        </li>#}
+                        {#                        <li class="nav-item"><a class="nav-link" href="#plugins">Plugins</a></li>#}
+                        {#                        <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>#}
+                        <li class="nav-item"><a class="nav-link" href="#changelog">网站更新日志</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <div class="main-content container-fluid">
+        {#        <section id="general">#}
+        {#            <h1 class="shareable-anchor" id="general_introduction">#}
+        {#                <div>#}
+        {#                    Introduction <a href="#general_introduction">#</a>#}
+        {#                </div>#}
+        {#            </h1>#}
+        {#            <p>Thank you for support our work, <b>Beagle</b> is an HTML/CSS/JS admin template based on the famous#}
+        {#                Bootstrap framework, made it with love in every pixel.</p>#}
+        {#            <p>In this document you will find a complete guide which covers topics about the product functionality,#}
+        {#                components, structure, workflow and the initial setup. </p>#}
+        {#            <h2 class="shareable-anchor" id="folder_structure">#}
+        {#                <div>Folder Structure <a href="#folder_structure">#</a></div>#}
+        {#            </h2>#}
+        {#            <p>Once you've downloaded this product, extract the zip file and you will find these directories:</p>#}
+        {#            <div class="code-panel">#}
+        {#                <div class="code-panel__heading"><span>beagle.zip</span></div>#}
+        {#                <div class="code-panel__content">#}
+        {#                <pre class="prettyprint">beagle#}
+        {#├── dist#}
+        {#├──── html#}
+        {#├──── starter#}
+        {#├── src#}
+        {#├── dep-copy.json#}
+        {#├── package.json#}
+        {#└── README.md#}
+        {#</pre>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <h3>dist</h3>#}
+        {#            <p>This folder contains the final production-ready compiled files</p>#}
+        {#            <h4>html</h4>#}
+        {#            <p>This folder contains the complete distribution version with all demo content included as seen in the#}
+        {#                live preview version.</p>#}
+        {#            <h4>starter</h4>#}
+        {#            <p>This folder contains the essentials components, this version does not include any of the live preview#}
+        {#                examples. This is especially designed to get started with only the needed elements. </p>#}
+        {#            <h3>src</h3>#}
+        {#            <p>In this folder you'll find the template's source code, if you want to customize the template to fit#}
+        {#                your specific needs, this is the right place to start with.</p>#}
+        {#            <h3>dep-copy.json</h3>#}
+        {#            <p>In this file you'll find the libraries that are copied from <code>"node_modules"</code> to <code>"src/assets/lib"</code>.#}
+        {#                If you want add a new libraries, this file is necessary.</p>#}
+        {#            <h3>package.json</h3>#}
+        {#            <p>This is the <a href="https://docs.npmjs.com/getting-started/using-a-package.json">npm manifest</a>#}
+        {#                file in which we define what are going to be our workflow dependencies and our main tasks.</p>#}
+        {#            <h1 class="shareable-anchor" id="general_structure">#}
+        {#                <div>HTML Structure <a href="#general_structure">#</a></div>#}
+        {#            </h1>#}
+        {#            <p>The template main structure is divided in four sections: <b>Top bar</b>, <b>Left sidebar</b>, <b>Right#}
+        {#                sidebar</b> and <b>Main content</b>.</p>#}
+        {#            <div class="code-panel">#}
+        {#                <div class="code-panel__heading"><span>Main Structure</span></div>#}
+        {#                <div class="code-panel__content">#}
+        {#                <pre class="prettyprint">&lt;!DOCTYPE html&gt;#}
+        {#&lt;html lang=&quot;en&quot;&gt;#}
+        {#  &lt;body&gt;#}
+        {#    &lt;div class=&quot;be-wrapper&quot;&gt;#}
+        {#      &lt;nav class=&quot;navbar navbar-expand fixed-top be-top-header&quot;&gt;#}
+        {#        &lt;!-- Top bar --&gt;#}
+        {#      &lt;/nav&gt;#}
+        {#      &lt;div class=&quot;be-left-sidebar&quot;&gt;#}
+        {#        &lt;!-- Left sidebar --&gt;#}
+        {#      &lt;/div&gt;#}
+        {#      &lt;div class=&quot;be-content&quot;&gt;#}
+        {#        &lt;!-- Main Content --&gt;#}
+        {#      &lt;/div&gt;#}
+        {#      &lt;nav class=&quot;be-right-sidebar&quot;&gt;#}
+        {#        &lt;!-- Right sidebar --&gt;#}
+        {#      &lt;/nav&gt;#}
+        {#    &lt;/div&gt;#}
+        {#  &lt;/body&gt;#}
+        {#&lt;/html&gt;#}
+        {#</pre>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <h3 class="shareable-anchor" id="required_dependencies">#}
+        {#                <div>Required Dependencies <a href="#required_dependencies">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>This template require four libraries to work:</p>#}
+        {#            <ul>#}
+        {#                <li><a href="https://jquery.com/">jQuery 1.9.1</a> (or later)</li>#}
+        {#                <li><a href="http://getbootstrap.com/">Bootstrap 4.1.2</a></li>#}
+        {#                <li><a href="https://github.com/noraesae/perfect-scrollbar">Perfect Scrollbar 1.4.0</a></li>#}
+        {#                <li><a href="http://zavoloklom.github.io/material-design-iconic-font/index.html">Material Design#}
+        {#                    Iconic Font</a> (latest)#}
+        {#                </li>#}
+        {#            </ul>#}
+        {#            <p>In addition to these libs, the main structure needs a basic modular js core to provide the template#}
+        {#                interaction like sidebars functionality. This file is located in <code>"assets/js/app.js"</code></p>#}
+        {#            <p>There are some dependencies embedded in the <code>app.js</code> file that adds extra functionality to#}
+        {#                the template:</p>#}
+        {#            <ul>#}
+        {#                <li><a href="https://github.com/ftlabs/fastclick">Fast Click 1.0.3</a></li>#}
+        {#                <li><a href="https://github.com/bgrins/TinyColor">Tiny Color 1.2.1</a></li>#}
+        {#                <li><a href="https://github.com/mattbryson/TouchSwipe-Jquery-Plugin">jQuery Touch Swipe 1.6.12</a>#}
+        {#                </li>#}
+        {#                <li><a href="https://github.com/foxythemes/bs4-breakpoint-check">jQuery Bootstrap 4 Breakpoint Check#}
+        {#                    1.0.5</a></li>#}
+        {#            </ul>#}
+        {#            <div class="alert alert-primary" role="alert">#}
+        {#                <div class="icon"><span class="mdi mdi-info-outline"></span></div>#}
+        {#                <div class="message"><strong>Note:</strong> You don't need to add these last dependencies because#}
+        {#                    they are already included in the app.js file#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <h3 class="shareable-anchor" id="include_dependencies">#}
+        {#                <div>Include the dependencies <a href="#include_dependencies">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>Be sure to include the essentials scripts in your pages, for example inside your <code>head</code>#}
+        {#                tag should be like this:</p>#}
+        {#            <div class="code-panel">#}
+        {#                <div class="code-panel__heading"><span>Head Links</span></div>#}
+        {#                <div class="code-panel__content">#}
+        {#                <pre class="prettyprint">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/lib/material-design-icons/css/material-design-iconic-font.min.css&quot;&gt;#}
+        {#&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/lib/perfect-scrollbar/css/perfect-scrollbar.css&quot;&gt;#}
+        {#&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/app.css&quot; type=&quot;text/css&quot;&gt;#}
+        {#</pre>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <p>And just before the <code>body</code> tag ends, please add these JavaScript libs:</p>#}
+        {#            <div class="code-panel">#}
+        {#                <div class="code-panel__heading"><span>Footer Scripts</span></div>#}
+        {#                <div class="code-panel__content">#}
+        {#                <pre class="prettyprint">&lt;script src=&quot;assets/lib/jquery/jquery.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;				#}
+        {#&lt;script src=&quot;assets/lib/perfect-scrollbar/js/perfect-scrollbar.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;#}
+        {#&lt;script src=&quot;assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;#}
+        {#&lt;script src=&quot;assets/js/app.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;#}
+        {##}
+        {#&lt;script type=&quot;text/javascript&quot;&gt;#}
+        {#  $(document).ready(function(){#}
+        {#    //initialize the javascript#}
+        {#    App.init();#}
+        {#  });#}
+        {#&lt;/script&gt;#}
+        {#</pre>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <h2 class="shareable-anchor" id="gs_topbar">#}
+        {#                <div>Top bar <a href="#gs_topbar">#</a></div>#}
+        {#            </h2>#}
+        {#            <p>We are extending the <a href="https://getbootstrap.com/docs/4.0/components/navbar/">Bootstrap#}
+        {#                Navbar</a> component using the fixed version by default, we also added some custom elements:</p>#}
+        {#            <div class="code-panel">#}
+        {#                <div class="code-panel__heading"><span>Top bar structure</span></div>#}
+        {#                <div class="code-panel__content">#}
+        {#                <pre class="prettyprint">&lt;nav class=&quot;navbar navbar-expand fixed-top be-top-header&quot;&gt;#}
+        {#  &lt;div class=&quot;container-fluid&quot;&gt;#}
+        {##}
+        {#    &lt;!-- Navbar Header --&gt;#}
+        {#    &lt;div class=&quot;be-navbar-header&quot;&gt;#}
+        {##}
+        {#      &lt;!-- Brand Logo --&gt;#}
+        {#      &lt;a href=&quot;&#35;&quot; class=&quot;navbar-brand&quot;&gt;&lt;/a&gt;#}
+        {#    &lt;/div&gt;#}
+        {##}
+        {#    &lt;!-- Main topbar elements --&gt;#}
+        {#    &lt;div class=&quot;be-right-navbar&quot;&gt;#}
+        {#      &lt;ul class=&quot;nav navbar-nav be-user-nav&quot;&gt;#}
+        {#        &lt;!-- User Menu --&gt;#}
+        {#      &lt;/ul&gt;#}
+        {##}
+        {#      &lt;!-- Page title --&gt;#}
+        {#      &lt;div class=&quot;page-title&quot;&gt;&lt;span&gt;Dashboard&lt;/span&gt;&lt;/div&gt;#}
+        {##}
+        {#      &lt;ul class=&quot;nav navbar-nav be-icons-nav&quot;&gt;#}
+        {#        &lt;!-- Icons Menu --&gt;#}
+        {#      &lt;/ul&gt;#}
+        {#    &lt;/div&gt;#}
+        {##}
+        {#    &lt;!-- Left navbar (Used only when there is no left sidebar) --&gt;#}
+        {#    &lt;a href=&quot;&#35;&quot; data-toggle=&quot;collapse&quot; data-target=&quot;&#35;be-navbar-collapse&quot; class=&quot;be-toggle-top-header-menu collapsed&quot;&gt;No Sidebar Left&lt;/a&gt;#}
+        {#    &lt;div id=&quot;be-navbar-collapse&quot; class=&quot;navbar-collapse collapse&quot;&gt;#}
+        {#      &lt;!-- Default bootstrap navbar --&gt;#}
+        {#    &lt;/div&gt;#}
+        {##}
+        {#  &lt;/div&gt;#}
+        {#&lt;/nav&gt;#}
+        {##}
+        {#</pre>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <h3>Navbar Header</h3>#}
+        {#            <p>In this element you'll find the app logo, located in the top left corner (<code>"navbar-brand"</code>),#}
+        {#                it will be shown on large devices and hidden on small resolutions:<br><img class="img-fluid"#}
+        {#                                                                                           src="assets/img/docs/img1.png"#}
+        {#                                                                                           alt="Page Title"></p>#}
+        {#            <h3>Main topbar elements</h3>#}
+        {#            <p>Is composed by a group of elements which one of them is going to be hidden(<code>"page-title"</code>)#}
+        {#                on small devices.<br></p>#}
+        {#            <p>Desktop View<br><img class="img-fluid" src="assets/img/docs/img2.png" alt="Navbar Collapse"></p>#}
+        {#            <p>Small View<br><img class="img-fluid" src="assets/img/docs/img3.png" alt="Navbar Collapse"></p>#}
+        {#            <h1 class="shareable-anchor" id="general_javascript">#}
+        {#                <div>JavaScript <a href="#general_javascript">#</a></div>#}
+        {#            </h1>#}
+        {#            <p>In every page, we are calling an object method which handles the basic template interaction. It's#}
+        {#                written with "The Module Pattern" which encapsulates certain code, allowing to be used when it's#}
+        {#                needed.</p>#}
+        {#            <p>We use a global javascript object called "App", it provides a modular structure that we use to#}
+        {#                initialize the demo Js plugins on each demo page. You can find several modules in#}
+        {#                <code>"assets/js"</code> inside the <b>html</b> folder. </p>#}
+        {#            <p>Said that you'll notice that there are different Js modules for some of the demo pages, all of them#}
+        {#                are optional, exept the <code>"app.js"</code> or <code>"app.min.js"</code> in case you want to use#}
+        {#                the minified version.</p>#}
+        {#            <div class="alert alert-primary" role="alert">#}
+        {#                <div class="icon"><span class="mdi mdi-info-outline"></span></div>#}
+        {#                <div class="message"><strong>Important:</strong> Please don't add any custom Js code inside this#}
+        {#                    file because you'll lose it when you update the template.#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <h3 class="shareable-anchor" id="init_method">#}
+        {#                <div>init() Method <a href="#init_method">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>This method is responsible for some of the bootstrap plugins initializing, both sidebars#}
+        {#                functionality and other responsive tasks. That's why this is the core method of this template.</p>#}
+        {#            <p>You can add it at the end of the page like this:</p>#}
+        {#            <div class="code-panel">#}
+        {#                <div class="code-panel__heading"><span>Footer Scripts</span></div>#}
+        {#                <div class="code-panel__content">#}
+        {#                <pre class="prettyprint">&lt;script type=&quot;text/javascript&quot;&gt;#}
+        {#  $(document).ready(function(){#}
+        {#    App.init();#}
+        {#  });#}
+        {#&lt;/script&gt;#}
+        {#</pre>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <h3 class="shareable-anchor" id="gs_modules">#}
+        {#                <div>Demo modules & methods <a href="#gs_modules">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>In order to call the following methods you'll need to include the script reference of the JavaScript#}
+        {#                file, after that you can call it after the init method this way: <code>App.methodName();</code></p>#}
+        {#            <p>Each of these modules contain the JS init for the demo plugins, feel free to copy and modify#}
+        {#                according to your needs.</p>#}
+        {#            <table class="table table-striped">#}
+        {#                <thead>#}
+        {#                <tr>#}
+        {#                    <th width="20%">File Name</th>#}
+        {#                    <th width="20%">Method</th>#}
+        {#                    <th width="20%">Page</th>#}
+        {#                </tr>#}
+        {#                </thead>#}
+        {#                <tbody>#}
+        {#                <tr>#}
+        {#                    <td>app-dashboard.js</td>#}
+        {#                    <td>dashboard</td>#}
+        {#                    <td>index.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-ui-notifications.js</td>#}
+        {#                    <td>uiNotifications</td>#}
+        {#                    <td>ui-notifications.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-ui-nestable-lists.js</td>#}
+        {#                    <td>uiNestableLists</td>#}
+        {#                    <td>ui-nestable-lists.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-charts.js</td>#}
+        {#                    <td>charts</td>#}
+        {#                    <td>charts.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-charts-morris.js</td>#}
+        {#                    <td>chartsMorris</td>#}
+        {#                    <td>charts-morris.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-charts-sparkline.js</td>#}
+        {#                    <td>chartsSparklines</td>#}
+        {#                    <td>charts-sparkline.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-form-elements.js</td>#}
+        {#                    <td>formElements</td>#}
+        {#                    <td>form-elements.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-form-wizard.js</td>#}
+        {#                    <td>wizard</td>#}
+        {#                    <td>form-wizard.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-form-masks.js</td>#}
+        {#                    <td>masks</td>#}
+        {#                    <td>form-masks.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-form-wysiwyg.js</td>#}
+        {#                    <td>textEditors</td>#}
+        {#                    <td>form-wysiwyg.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-icons.js</td>#}
+        {#                    <td>IconsFilter</td>#}
+        {#                    <td>ui-icons.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-mail-inbox.js</td>#}
+        {#                    <td>mailInbox</td>#}
+        {#                    <td>email-inbox.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-mail-compose.js</td>#}
+        {#                    <td>mailCompose</td>#}
+        {#                    <td>email-compose.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-tables-datatables.js</td>#}
+        {#                    <td>dataTables</td>#}
+        {#                    <td>tables-datatables.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-pages-profile.js</td>#}
+        {#                    <td>pageProfile</td>#}
+        {#                    <td>pages-profile.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-pages-calendar.js</td>#}
+        {#                    <td>pageCalendar</td>#}
+        {#                    <td>pages-calendar.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-pages-gallery.js</td>#}
+        {#                    <td>pageGallery</td>#}
+        {#                    <td>pages-gallery.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-maps-google.js</td>#}
+        {#                    <td>mapsGoogle</td>#}
+        {#                    <td>maps-google.html</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>app-maps-vector.js</td>#}
+        {#                    <td>mapsVector</td>#}
+        {#                    <td>maps-vector.html</td>#}
+        {#                </tr>#}
+        {#                </tbody>#}
+        {#            </table>#}
+        {#            <h3 class="shareable-anchor" id="gs_create_module">#}
+        {#                <div>Create an App module <a href="#gs_create_module">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>You can extend the App modular structure easily by creating your own modules like this:</p>#}
+        {#            <div class="code-panel">#}
+        {#                <div class="code-panel__heading"><span>Footer Scripts</span></div>#}
+        {#                <div class="code-panel__content">#}
+        {#                <pre class="prettyprint">var App = (function () {#}
+        {##}
+        {#  App.moduleName = function( ){#}
+        {#    'use strict'#}
+        {##}
+        {#    //Js Code#}
+        {#    #}
+        {#  };#}
+        {##}
+        {#  return App;#}
+        {#})(App || {});</pre>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </section>#}
+        {#        <section id="getting_started">#}
+        {#            <h1 class="shareable-anchor" id="getting_started">#}
+        {#                <div>Getting Started <a href="#getting_started">#</a></div>#}
+        {#            </h1>#}
+        {#            <p>There are three different ways to use this template in your next project:</p>#}
+        {#            <ul>#}
+        {#                <li>Basic Setup</li>#}
+        {#                <li>Using SASS files</li>#}
+        {#                <li>Using NPM scripts</li>#}
+        {#            </ul>#}
+        {#            <h2 class="shareable-anchor" id="gs_basic_setup">#}
+        {#                <div>Basic Setup <a href="#gs_basic_setup">#</a></div>#}
+        {#            </h2>#}
+        {#            <p>This is the quickest way to setup the template, you just have to copy the <b>"starter"</b> folder#}
+        {#                content into your project root folder and start working on the <code>index.html</code> file.</p>#}
+        {#            <div class="alert alert-danger" role="alert">#}
+        {#                <div class="icon"><span class="mdi mdi-alert-triangle"></span></div>#}
+        {#                <div class="message"><strong>Important:</strong> Using this method you'll need to add your custom#}
+        {#                    styles in a different css file, to avoid losing changes when you update the template.#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <p>Be sure to include the <a href="#required_dependencies">essentials scripts</a> in your document to#}
+        {#                get things work properly. After that you're ready to start building.</p>#}
+        {#            <h3>Cons</h3>#}
+        {#            <p>This method is perfect if you think you are not going to make several changes to the original version#}
+        {#                and use it "as is", otherwise we suggest to use one of the following methods.</p>#}
+        {#            <h2 class="shareable-anchor" id="gs_npm_setup">#}
+        {#                <div>NPM scripts <a href="#gs_npm_setup">#</a></div>#}
+        {#            </h2>#}
+        {#            <p>The NPM scripts are a property of the package.json file, which allows us to define commands that will#}
+        {#                be executed several times in our workflow. We can create commands to execute tasks or operations#}
+        {#                like install, compile, minify, remove, distribute, etc., all without having to depend of a task#}
+        {#                runner.</p>#}
+        {#            <p>If you haven't used NPM scrips before, be sure to check out the <a#}
+        {#                    href="https://docs.npmjs.com/misc/scripts">npm-scripts</a> documentation.</p>#}
+        {#            <p>Supposing that you already are familiar with NPM scrips, we are going to explain step by step how to#}
+        {#                get started with the built-in workflow.</p>#}
+        {#            <h3 class="shareable-anchor" id="gs_install_node">#}
+        {#                <div>Install Node <a href="#gs_install_node">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>If you already have Node.js installed you can skip this step.</p>#}
+        {#            <ol class="xs-mt-20">#}
+        {#                <li class="xs-mb-15">Be sure to have the latest version of <a href="https://nodejs.org">Node.js</a>#}
+        {#                    installed & running in your computer. We are going to use <a#}
+        {#                            href="https://www.npmjs.com/">npm</a> that comes with Node.js installation.#}
+        {#                </li>#}
+        {#            </ol>#}
+        {#            <h3 class="shareable-anchor" id="gs_npm_install_dependencies">#}
+        {#                <div>Install npm dependencies <a href="#gs_npm_install_dependencies">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>In your root folder enter the following command to install the project dependencies: <code>npm#}
+        {#                install</code>, this command will install all the template libraries inside the source folder:#}
+        {#                <code>src/assets/libs</code>, you need to run this command before you run <code>npm run dist</code>#}
+        {#                in order to include dependencies in distribution.</p>#}
+        {#            <h3 class="shareable-anchor" id="gs_npm_setup_sass">#}
+        {#                <div>Setup SASS development environment <a href="#gs_npm_setup_sass">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>In case you don't know nothing about css pre-processors, this is a brief description about what it#}
+        {#                is:</p>#}
+        {#            <blockquote>#}
+        {#                <p>SASS is the most mature, stable, and powerful professional grade CSS extension language in the#}
+        {#                    world.</p>#}
+        {#                <footer>Taken from <a href="http://sass-lang.com/">sass-lang.com</a></footer>#}
+        {#            </blockquote>#}
+        {#            <p>In other words with css-preprocessors you can change the full color theme of this template by just#}
+        {#                changing a few lines of code.</p>#}
+        {#            <h3 class="shareable-anchor" id="gs_setting_css">#}
+        {#                <div>Setting up your css file <a href="#gs_setting_css">#</a></div>#}
+        {#            </h3>#}
+        {#            <ol class="xs-mt-20">#}
+        {#                <li class="xs-mb-15">In the sass folder <code>src/sass/</code> you'll find a file called#}
+        {#                    <code>app.scss</code>.#}
+        {#                </li>#}
+        {#                <li class="xs-mb-15">Rename it to a different name, for example <code>app.scss</code> => <code>beagle.scss</code>.#}
+        {#                </li>#}
+        {#                <li class="xs-mb-15">Then create a new file called <code>app.scss</code> which you are going to use#}
+        {#                    it to modify variables and create your custom code.#}
+        {#                </li>#}
+        {#                <li class="xs-mb-15">#}
+        {#                    <p>After that, you'll need to include the original main SASS file into the new file like#}
+        {#                        this:</p>#}
+        {#                    <div class="code-panel">#}
+        {#                        <div class="code-panel__heading"><span>app.scss</span></div>#}
+        {#                        <div class="code-panel__content">#}
+        {#                    <pre class="prettyprint lang-css">// Overwrite templates variables here#}
+        {##}
+        {#// Import the template source code#}
+        {#@import &quot;beagle&quot;;#}
+        {##}
+        {#// Your custom code goes here#}
+        {#</pre>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                    <p>Inside this file you can modify the bootstrap and template variables values for example to#}
+        {#                        change the color scheme:</p>#}
+        {#                    <div class="code-panel">#}
+        {#                        <div class="code-panel__heading"><span>app.scss</span></div>#}
+        {#                        <div class="code-panel__content">#}
+        {#                    <pre class="prettyprint lang-css">// Modify template colors#}
+        {#$primary:		&#35;595BD4;#}
+        {#$danger:		&#35;FD3D39;#}
+        {#$warning:		&#35;FFCB2F;#}
+        {#$success:		&#35;53D86A;#}
+        {##}
+        {#// Import the template source code#}
+        {#@import &quot;beagle&quot;;#}
+        {#</pre>#}
+        {#                        </div>#}
+        {#                    </div>#}
+        {#                </li>#}
+        {#            </ol>#}
+        {#            <h3 class="shareable-anchor" id="gs_sass_variables">#}
+        {#                <div>Variables <a href="#gs_sass_variables">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>The template comes with several veriables that you can use to customize and create your own version,#}
+        {#                alongside with the Bootstrap default variables.</p>#}
+        {#            <p>To see what variables are available go to <code>"src/sass/config/_beagle-variables.scss"</code>.</p>#}
+        {#            <h3 class="shareable-anchor" id="gs_npm_tasks">#}
+        {#                <div>Available Commands <a href="#gs_npm_tasks">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>After install dependencies now you can run the automated scripts:</p>#}
+        {#            <h4>NPM Scripts</h4>#}
+        {#            <table class="table table-striped">#}
+        {#                <thead>#}
+        {#                <tr>#}
+        {#                    <th width="20%">Command</th>#}
+        {#                    <th>Description</th>#}
+        {#                </tr>#}
+        {#                </thead>#}
+        {#                <tbody>#}
+        {#                <tr>#}
+        {#                    <td>npm install</td>#}
+        {#                    <td>Install and copy all the template libraries into <code>src/assets/lib</code> using the <br>#}
+        {#                        <b>dep-copy.json</b> file.#}
+        {#                    </td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>npm start</td>#}
+        {#                    <td>It runs the watch command and an express development server in <code>http://localhost:8080/index.html</code>,#}
+        {#                        this way you can modify your SASS files and it automatically compiles your code.#}
+        {#                    </td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>npm run dist</td>#}
+        {#                    <td>Generate the ready-to-use distribution based on changes made on <code>src</code> directory,#}
+        {#                        the distribution files will be located at <code>dist</code> folder.#}
+        {#                    </td>#}
+        {#                </tr>#}
+        {#                </tbody>#}
+        {#            </table>#}
+        {#            <h3 class="shareable-anchor" id="gs_npm_add_new_dependencies">#}
+        {#                <div>Adding new dependencies <a href="#gs_npm_add_new_dependencies">#</a></div>#}
+        {#            </h3>#}
+        {#            <p>You can add new dependencies easily using npm, just open your terminal in your root path and install#}
+        {#                the dependency as usual using <code>npm install dependency-name --save</code>, then you'll need to#}
+        {#                add a new entry on <b>dep-copy.json</b> file.</p>#}
+        {#            <h4>Adding a new entry on dep-copy.json file</h4>#}
+        {#            <p>We use a dep-copy.json file to filter which files do we really want to be copied to our#}
+        {#                development/production environment reducing the unnecessary load of unused files.</p>#}
+        {#            <p>Open the <code>dep-copy.json</code> file and add a new entry like this:</p>#}
+        {#            <div class="code-panel">#}
+        {#                <div class="code-panel__heading"><span>dep-copy.json</span></div>#}
+        {#                <div class="code-panel__content">#}
+        {#                <pre class="prettyprint">&quot;npm-package-name&quot;: {#}
+        {#  &quot;files&quot;:{#}
+        {#    &quot;npm-dependency-destination/css&quot; : &quot;npm-dependency-name/css/*&quot;,#}
+        {#    &quot;npm-dependency-destination/js&quot; : &quot;bootstrap/js/*&quot;#}
+        {#  }#}
+        {#}#}
+        {#</pre>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#            <p>This way the new dependency will be copied from <code>node_modules/npm-dependency-name/</code> to#}
+        {#                <code>src/assets/lib/npm-dependency-destination/</code> and only the files you specified in the new#}
+        {#                npmcopy entry will be moved to the <b>lib</b> folder.</p>#}
+        {#            <p>Globs are enabled for using on dep-copy.json file.</p>#}
+        {#        </section>#}
+        {#        <section id="plugins">#}
+        {#            <h1 class="shareable-anchor" id="plugins">#}
+        {#                <div>Plugins <a href="#plugins">#</a></div>#}
+        {#            </h1>#}
+        {#            <p>This template comes with four <a href="#required_dependencies">main dependencies</a>, and several#}
+        {#                plugins for the demo pages, here is the plugin list with the official documentation for each one.#}
+        {#            </p>#}
+        {#            <table class="table table-striped">#}
+        {#                <thead>#}
+        {#                <tr>#}
+        {#                    <th width="25%">Name</th>#}
+        {#                    <th width="60%">Documentation</th>#}
+        {#                    <th class="number">Version</th>#}
+        {#                </tr>#}
+        {#                </thead>#}
+        {#                <tbody>#}
+        {#                <tr>#}
+        {#                    <td>jQuery</td>#}
+        {#                    <td><a href="https://jquery.com/">https://jquery.com/</a></td>#}
+        {#                    <td class="number">>= 1.9.1</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>Bootstrap</td>#}
+        {#                    <td><a href="http://getbootstrap.com/">http://getbootstrap.com/</a></td>#}
+        {#                    <td class="number">4.1.2</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>perfect-scrollbar</td>#}
+        {#                    <td><a href="https://github.com/noraesae/perfect-scrollbar">https://github.com/noraesae/perfect-scrollbar</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.4.0</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>countUp.js</td>#}
+        {#                    <td>#}
+        {#                        <a href="https://inorganik.github.io/countUp.js/">https://inorganik.github.io/countUp.js/</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.5.3</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_datatables">#}
+        {#                    <td>dataTables</td>#}
+        {#                    <td><a href="http://datatables.net/">http://datatables.net/</a></td>#}
+        {#                    <td class="number">1.10.16</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>dataTables Buttons</td>#}
+        {#                    <td><a href="https://github.com/DataTables/Buttons">https://github.com/DataTables/Buttons</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.4.2</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_dropzone">#}
+        {#                    <td>Dropzone</td>#}
+        {#                    <td><a href="http://www.dropzonejs.com">http://www.dropzonejs.com</a></td>#}
+        {#                    <td class="number">4.3.0</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>CurvedLines</td>#}
+        {#                    <td>#}
+        {#                        <a href="http://curvedlines.michaelzinsmaier.de/">http://curvedlines.michaelzinsmaier.de/</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.1.1</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td id="gritter_pluggin">Gritter</td>#}
+        {#                    <td><a href="https://github.com/jboesch/Gritter">https://github.com/jboesch/Gritter</a></td>#}
+        {#                    <td class="number">1.7.4</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_fastclick">#}
+        {#                    <td>Fast Click</td>#}
+        {#                    <td>#}
+        {#                        <a href="https://github.com/foxythemes/fastclick">https://github.com/foxythemes/fastclick</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.0.3</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_fuelux">#}
+        {#                    <td>Fuel UX</td>#}
+        {#                    <td><a href="http://getfuelux.com/">http://getfuelux.com/</a></td>#}
+        {#                    <td class="number">3.15.11</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_calendar">#}
+        {#                    <td>FullCalendar</td>#}
+        {#                    <td><a href="http://arshaw.com/fullcalendar/">http://arshaw.com/fullcalendar/</a></td>#}
+        {#                    <td class="number">3.8.0</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_codemirror">#}
+        {#                    <td>Codemirror</td>#}
+        {#                    <td><a href="https://codemirror.net/">https://codemirror.net/</a></td>#}
+        {#                    <td class="number">5.37.0</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>jQuery Bootstrap 4 Breakpoint Check</td>#}
+        {#                    <td><a href="https://github.com/foxythemes/bs4-breakpoint-check">https://github.com/foxythemes/bs4-breakpoint-check</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.0.5</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td id="jquery_nestable">jQuery Nestable</td>#}
+        {#                    <td><a href="https://github.com/thesabbir/jquery-nestable">https://github.com/thesabbir/jquery-nestable</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.0</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td id="nifty_modals">jQuery Nifty Modals</td>#}
+        {#                    <td><a href="https://github.com/foxythemes/jquery-niftymodals">https://github.com/foxythemes/jquery-niftymodals</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.3.1</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_jqueryui">#}
+        {#                    <td>jQuery UI</td>#}
+        {#                    <td><a href="https://jqueryui.com/">https://jqueryui.com/</a></td>#}
+        {#                    <td class="number">1.11.4</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_masked">#}
+        {#                    <td>jQuery Masked Input</td>#}
+        {#                    <td><a href="https://github.com/digitalBush/jquery.maskedinput">https://github.com/digitalBush/jquery.maskedinput</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.4.1</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_google_map">#}
+        {#                    <td>Google Maps</td>#}
+        {#                    <td><a href="https://maps.googleapis.com">https://maps.googleapis.com</a></td>#}
+        {#                    <td class="number">3.0.0</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_jvector_map">#}
+        {#                    <td>jVectorMap</td>#}
+        {#                    <td><a href="https://github.com/bjornd/jvectormap/">https://github.com/bjornd/jvectormap/</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.2.2</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>jQuery Vector Map</td>#}
+        {#                    <td><a href="https://github.com/manifestinteractive/jqvmap">https://github.com/manifestinteractive/jqvmap</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.5.1</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_sparkline">#}
+        {#                    <td>jQuery Sparkline</td>#}
+        {#                    <td><a href="https://github.com/kapusta/jquery.sparkline">https://github.com/kapusta/jquery.sparkline</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">2.1.3</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_magnific_popup">#}
+        {#                    <td>Magnific Popup</td>#}
+        {#                    <td><a href="http://dimsemenov.com/plugins/magnific-popup/">http://dimsemenov.com/plugins/magnific-popup/</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">1.0.0</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_masonry">#}
+        {#                    <td>Masonry</td>#}
+        {#                    <td><a href="http://masonry.desandro.com/">http://masonry.desandro.com/</a></td>#}
+        {#                    <td class="number">4.1.0</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_moment">#}
+        {#                    <td>Moment</td>#}
+        {#                    <td><a href="http://momentjs.com/">http://momentjs.com/</a></td>#}
+        {#                    <td class="number">2.14.1</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_mprogress">#}
+        {#                    <td>mprogress</td>#}
+        {#                    <td><a href="https://github.com/lightningtgc/MProgress.js">https://github.com/lightningtgc/MProgress.js</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">0.1.1</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_parsley">#}
+        {#                    <td>Parsley</td>#}
+        {#                    <td><a href="http://parsleyjs.org/">http://parsleyjs.org/</a></td>#}
+        {#                    <td class="number">2.4.3</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_bsslider">#}
+        {#                    <td>Bootstrap Slider</td>#}
+        {#                    <td>#}
+        {#                        <a href="http://seiyria.github.io/bootstrap-slider/">http://seiyria.github.io/bootstrap-slider/</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">10.0.0</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_select2">#}
+        {#                    <td>Select2</td>#}
+        {#                    <td><a href="https://select2.github.io/">https://select2.github.io/</a></td>#}
+        {#                    <td class="number">4.0.3</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_datetimepicker">#}
+        {#                    <td>Date Time Picker</td>#}
+        {#                    <td><a href="https://www.malot.fr/bootstrap-datetimepicker/">https://www.malot.fr/bootstrap-datetimepicker/</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">2.3.4</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_multiselect">#}
+        {#                    <td>Multi Select</td>#}
+        {#                    <td><a href="http://loudev.com/">http://loudev.com/</a></td>#}
+        {#                    <td class="number">0.9.12</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_quicksearch">#}
+        {#                    <td>Quicksearch</td>#}
+        {#                    <td><a href="https://github.com/DeuxHuitHuit/quicksearch">https://github.com/DeuxHuitHuit/quicksearch</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">2.4.0</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_summernote">#}
+        {#                    <td>Sumernote</td>#}
+        {#                    <td><a href="https://summernote.org/">https://summernote.org/</a></td>#}
+        {#                    <td class="number">0.8.8</td>#}
+        {#                </tr>#}
+        {#                <tr>#}
+        {#                    <td>Tiny Color</td>#}
+        {#                    <td><a href="http://bgrins.github.io/TinyColor/">http://bgrins.github.io/TinyColor/</a></td>#}
+        {#                    <td class="number">1.2.1</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_flot">#}
+        {#                    <td>Flot Charts</td>#}
+        {#                    <td><a href="http://www.flotcharts.org/">http://www.flotcharts.org/</a></td>#}
+        {#                    <td class="number">0.8.3</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_morris">#}
+        {#                    <td>Morris.js</td>#}
+        {#                    <td><a href="https://github.com/morrisjs/morris.js">https://github.com/morrisjs/morris.jsTouchSwipe-Jquery-Plugin</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">0.5.1</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_raphael">#}
+        {#                    <td>Raphael.js</td>#}
+        {#                    <td><a href="https://github.com/DmitryBaranovskiy/raphael">https://github.com/DmitryBaranovskiy/raphael</a>#}
+        {#                    </td>#}
+        {#                    <td class="number">2.2.0</td>#}
+        {#                </tr>#}
+        {#                <tr id="plugin_chartjs">#}
+        {#                    <td>Chart.js</td>#}
+        {#                    <td><a href="https://github.com/chartjs/Chart.js">https://github.com/chartjs/Chart.js</a></td>#}
+        {#                    <td class="number">2.7.1</td>#}
+        {#                </tr>#}
+        {#                </tbody>#}
+        {#            </table>#}
+        {#        </section>#}
+        {#        <section id="support">#}
+        {#            <h1 class="shareable-anchor" id="support">#}
+        {#                <div>Support <a href="#support">#</a></div>#}
+        {#            </h1>#}
+        {#            <p>We are here to assist you, thank you for report any bug/issue to our email#}
+        {#                <b>support@foxythemes.net</b>.</p>#}
+        {#            <p>What support includes?</p>#}
+        {#            <ul>#}
+        {#                <li>Availability to answer questions</li>#}
+        {#                <li>Answering technical questions about item's features</li>#}
+        {#                <li>Assistance with reported bugs and issues</li>#}
+        {#                <li>Help with included 3rd party assets</li>#}
+        {#            </ul>#}
+        {#            <p>What support doesn't include:</p>#}
+        {#            <ul>#}
+        {#                <li>Customization services</li>#}
+        {#                <li>Installation services</li>#}
+        {#            </ul>#}
+        {#            <p>If you already read the documentation and you still need assistance, please send us your purchase#}
+        {#                data to <b>support@foxythemes.net</b> and we'll be glad to help you.</p>#}
+        {#        </section>#}
+        <section id="changelog">
+            <h1 class="shareable-anchor" id="changelog">
+                <div>网站更新日志<a href="#changelog">#</a></div>
+            </h1>
+            <div class="row" id="v1.1.0">
+                <div class="col-12">
+                    <div class="card card-table">
+                        <div class="card-header">
+                            <div class="title">2020年03月15日</div>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-striped table-borderless">
+                                <thead>
+                                <tr>
+                                    <th>Version 1.1.0</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="success">
+                                    <td>Updated: 前端页面重构，更加美观</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Updated: 后端逻辑重构，更加优美</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Updated: 手机端浏览数据表体验更加友好</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Added: 添加了文档视图</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Added: 添加了昨日最受关注，最多赞同，最多讨论专栏排名</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="v1.0.2">
+                <div class="col-12">
+                    <div class="card card-table">
+                        <div class="card-header">
+                            <div class="title">2020年03月10日</div>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-striped table-borderless">
+                                <thead>
+                                <tr>
+                                    <th>Version 1.0.2</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="success">
+                                    <td>Updated: 将网站数据更新时间从每周更新调整为了每天更新</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Added: 添加了语文，英语，物理，化学，生物，政治，历史，地理合计8个科目的内容</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Added: 添加了“稀奇古怪博物馆”，“新奇的理科知识”，“镣铐舞者”， “数学其实没那么难”合计四个之前未被爬取到的专栏</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="v1.0.1">
+                <div class="col-12">
+                    <div class="card card-table">
+                        <div class="card-header">
+                            <div class="title">2020年03月06日</div>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-striped table-borderless">
+                                <thead>
+                                <tr>
+                                    <th>Version 1.0.1</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="success">
+                                    <td>Updated: 更新了前端模板</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Added: 添加了搜索排序功能</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Added: 添加了备案信息</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>Fixed: 修正了数据表格式出错问题</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="v1.0.0">
+                <div class="col-12">
+                    <div class="card card-table">
+                        <div class="card-header">
+                            <div class="title">2020年02月28日</div>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-striped table-borderless">
+                                <thead>
+                                <tr>
+                                    <th>Version 1.0.0</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="primary">
+                                    <td>Init: 初始版本发布
+                                        $$
+                                        E=mc^2
+                                        $$
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="../../static/assets/lib/prettify/prettify.js" type="text/javascript"></script>
+{% endblock %}
+{% block App %}
+    //-Runs prettify
+    prettyPrint();
+
+    //-Offset is equal to top-bar height
+    $('body').scrollspy({
+    target: '#aside-spy'
+    });
+
+    $('#aside-spy li a').on('click', function (e) {
+    e.preventDefault();
+    var obj = {Title: "Beagle", Url: $(this).attr('href')};
+    history.pushState(obj, obj.Title, obj.Url);
+    $($(this).attr('href'))[0].scrollIntoView();
+    });
+
+    $('.shareable-anchor div a').hover(function (e) {
+    e.preventDefault();
+    var obj = {Title: "Beagle", Url: $(this).attr('href')};
+    history.pushState(obj, obj.Title, obj.Url);
+    });
+
+    $(window).on('activate.bs.scrollspy', function (e) {
+    App.scroller.updateScroller(App.scroller.aside_scroll);
+    });
+{% endblock %}
