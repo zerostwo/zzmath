@@ -164,6 +164,9 @@ def article(category, columnID):
 
 @zhihu.route("/feedback", methods=["GET", "POST"])
 def feedback():
+    #descriptions = Feedback
+    feedbacks = Feedback.query.order_by(Feedback.id.desc())
+    print(feedbacks)
     if request.method == "POST":
         description = request.form.get("description")
         contact_details = request.form.get("contact_details")
@@ -174,7 +177,7 @@ def feedback():
         print(description, contact_details)
         flash("反馈提交成功，我们将会尽快处理!")
         return redirect(url_for('zhihu.home'))
-    return render_template("beagle/feedback.html", title="反馈")
+    return render_template("beagle/feedback.html", title="反馈", feedbacks=feedbacks)
 
 
 @zhihu.route("/documentation")

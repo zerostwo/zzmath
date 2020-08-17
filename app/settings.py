@@ -45,7 +45,7 @@ class TestConfig(Config):
     dbInfo = {
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
-        "USER": "root",
+        "USER": "duansq",
         "PASSWORD": "981211",
         "HOST": "47.112.25.206",
         "PORT": "3306",
@@ -59,7 +59,7 @@ class StagingConfig(Config):
     dbInfo = {
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
-        "USER": "root",
+        "USER": "duansq",
         "PASSWORD": "981211",
         "NAME": "zzmath",
         "HOST": "localhost",
@@ -73,7 +73,7 @@ class ProductConfig(Config):
     dbInfo = {
         "ENGINE": "mysql",
         "DRIVER": "pymysql",
-        "USER": "root",
+        "USER": "duansq",
         "PASSWORD": "981211",
         "NAME": "zzmath",
         "HOST": "localhost",
