@@ -5,6 +5,7 @@ import os
 
 # env获取环境变量FLASK_ENV，若没有环境变量，默认为“develop”
 env = os.environ.get("FLASK_ENV", "develop")
+
 app = create_app(env)
 
 manager = Manager(app=app)

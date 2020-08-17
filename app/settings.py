@@ -86,6 +86,6 @@ envs = {
     "develop": DevelopConfig,
     "testing": TestConfig,
     "staging": StagingConfig,
-    "product": ProductConfig,
+    "production": ProductConfig,
     "default": DevelopConfig
 }

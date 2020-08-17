@@ -58,12 +58,11 @@
                             <tbody>
                             {% for feedback in feedbacks %}
                                 <tr>
-                                    <td></td>
+                                    <td>{{ feedback.id }}</td>
                                     <td>{{ feedback.description }}</td>
-                                    <td>3</td>
+                                    <td>{{ feedback.is_resolved }}</td>
                                 </tr>
                             {% endfor %}
-
                             </tbody>
                         </table>
                     </div>
