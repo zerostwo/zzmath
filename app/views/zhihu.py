@@ -177,7 +177,7 @@ def feedback():
         print(description, contact_details)
         flash("反馈提交成功，我们将会尽快处理!")
         return redirect(url_for('zhihu.home'))
-    return render_template("beagle/feedback.html", title="反馈", feedbacks=feedbacks)
+    return render_template("beagle/feedback.html", title="反馈", feedbacks=feedbacks, f = "feedback")
 
 @zhihu.route("/documentation")
 def documentation():

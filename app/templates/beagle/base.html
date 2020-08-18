@@ -131,6 +131,9 @@
                                                 href="{{ url_for("zhihu.zhuanlan", category="geography") }}">地理</a></li>
                                     </ul>
                                 </li>
+                                <li class="{% if f == "feedback" %}active{% endif %}"><a
+                                    href="{{ url_for("zhihu.feedback") }}"><i
+                                    class="icon mdi mdi-comment-alert"></i><span>反馈</span></a></li>
                                 <li class="{% if docs == "docs" %}active{% endif %}"><a
                                         href="{{ url_for("zhihu.documentation") }}"><i
                                         class="icon mdi mdi-file-text"></i><span>文档</span></a></li>
