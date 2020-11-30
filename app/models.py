@@ -44,9 +44,9 @@ class ChangeLog(BaseModel):
 class Feedback(BaseModel):
     __tablename__ = "feedback"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    contact_details = db.Column(db.String(20))
-    description = db.Column(db.String(128))
-    is_resolved = db.Column(db.String(20), default = "未解决")
+    contact_details = db.Column(db.String(1000))
+    description = db.Column(db.String(1000))
+    is_resolved = db.Column(db.String(1000), default = "未解决")
 
 # 主页/高考/数学/数学相关专栏排名，目前排名第二的宋冰的菠萝斑马居住指南，其内容与数学无关。
 # QQ:984552746
