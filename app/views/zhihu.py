@@ -20,6 +20,17 @@ key_word_dict = {
     "geography": "地理",
 }
 
+from psutil import *
+from flask import jsonify
+@zhihu.route("/hyakki/")
+def hyakki():
+   dict = {
+      "memory": [virtual_memory().percent],
+      "disk": [disk_usage("/").percent],
+      "cpu": [cpu_percent(0)]
+   }
+   return jsonify(dict)
+
 
 @zhihu.route("/")
 def home():
